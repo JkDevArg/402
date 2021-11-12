@@ -8,4 +8,4 @@ Requerimientos PRO Full HD 4K 244Mhz 1000FPS
 * Café
 * 10 minutos de tu vida que no lo podras recuperar
 
-
+Muy pronto estara automatizado.}}
