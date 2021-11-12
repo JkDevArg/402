@@ -24,7 +24,7 @@
 
 
 
-    $sitioweb = curl($web);  // Ejecuta la función curl escrapeando el sitio web https://devcode.la and regresa el valor a la variable $sitioweb
+    $sitioweb = curl($web);  // Ejecuta la función curl
 
     echo $sitioweb;
 ?>
