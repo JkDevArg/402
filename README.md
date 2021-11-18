@@ -10,6 +10,7 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 - [x] Guarda los grupos encontrados en un bloc de notas "grupos.txt"
 - [x] Contador de cadenas generadas "contador.txt"
 - [x] Mediante un IF verifica si existe el grupo mediante un style="background-image: url
+- [x] Muestra Notificación en el escritorio si encuentra un grupo 
 - [ ] Envia un correo con el grupo hallado
 - [ ] Envia el enlace del grupo por whatsapp
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
