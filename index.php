@@ -27,6 +27,9 @@
 
     echo $sitioweb;
     if (strpos($sitioweb, 'style="background-image: url') !== false) {
+        echo "<script>setTimeout(function(){ 
+            window.open('". $web ."', '_blank');
+        }, 1000);</script>';";
         echo '<body onload="grupoNoti()"></body>
         <script>
             function grupoNoti() {
