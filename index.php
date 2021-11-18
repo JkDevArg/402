@@ -28,3 +28,50 @@
 
     echo $sitioweb;
 ?>
+<?php 
+    $c=0;
+    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $genNew = substr(str_shuffle($permitted_chars), 22, 22);
+    $web = 'https://chat.whatsapp.com/'.$genNew;
+    //$test1 = 'https://chat.whatsapp.com/Cv97lE6NjiV0rNe9ZaHjG0';
+    $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
+    $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
+    echo $web; //out -> https://chat.whatsapp.com/4FCn0y6ztd9q7BpsuGfAgi
+    
+    function curl($url) {
+
+        $ch = curl_init($url); // Inicia sesión cURL
+
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); // Configura cURL para devolver el resultado como cadena
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Configura cURL para que no verifique el peer del certificado dado que nuestra URL utiliza el protocolo HTTPS
+
+        $info = curl_exec($ch); // Establece una sesión cURL y asigna la información a la variable $info
+
+        curl_close($ch); // Cierra sesión cURL
+
+        return $info; // Devuelve la información de la función
+
+    }
+
+    $sitioweb = curl($web);  // Ejecuta la función curl
+
+    echo $sitioweb;
+    if (strpos($sitioweb, 'style="background-image: url') !== false) {
+        file_put_contents($txt,$web."\n",FILE_APPEND);
+        echo '<script>setTimeout(function(){ 
+            window.location.reload(); 
+        }, 3000);</script>';
+    } else {
+        $contenido = trim(file_get_contents($txtc));
+        $c = intval($contenido);
+        $c++;
+        file_put_contents($txtc,$c);
+        echo '<script>setTimeout(function(){ 
+            window.location.reload(); 
+        }, 2000);</script>';
+
+    }
+
+?>
