@@ -28,4 +28,8 @@ Requerimientos PC Gamer que corra Win XP a 1000fps sino no intenten.
 * 10 minutos de tu vida que no lo podras recuperar
 
 
+## Capturas
+![Captura 0001](https://prnt.sc/22rff9o)
+
+
 Si estas interesado en mi script y/o te parece divertido me puedes regalar un Follow por github :D
