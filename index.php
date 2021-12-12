@@ -6,6 +6,27 @@
     $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
     $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
     echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On 
+
+    function telegramMsj($web){
+
+      $token = "TOKEN DEL BOT";
+      $id = "ID DEL GRUPO ";
+      $mensaje = "Se encontro grupo de whatsapp: " . $web; // esto puedes cambiar por lo que desees ya uqe solo es un mensaje aclarando que encontro un grupo eso si la variable $web no borrarla
+
+      $urlMsg = "https://api.telegram.org/bot{$token}/sendMessage";
+
+      $te = curl_init();
+      curl_setopt($te, CURLOPT_URL, $urlMsg);
+      curl_setopt($te, CURLOPT_POST, 1);
+      curl_setopt($te, CURLOPT_POSTFIELDS, "chat_id={$id}&parse_mode=HTML&text=$mensaje");
+      curl_setopt($te, CURLOPT_RETURNTRANSFER, true);
+          
+      $server_output = curl_exec($te);
+      curl_close($te);
+
+      //return $server_output;
+    }
+
     function curl($url) {
 
         $ch = curl_init($url); // Inicia sesión cURL
@@ -61,11 +82,13 @@
             </script>
         ';
         file_put_contents($txt,$web."\n",FILE_APPEND);
+        echo telegramMsj($web); //Si encuentra un grupo automaticamente enviara el enlace desde el bot al grupo de telegram
         echo '<script>setTimeout(function(){ 
             window.location.reload(); 
         }, 3000);</script>';
     } else {
         $contenido = trim(file_get_contents($txtc));
+        //echo telegramMsj($web); //Solo descomentar si es necesario hacer pruebas
         $c = intval($contenido);
         $c++;
         file_put_contents($txtc,$c);
