@@ -29,7 +29,7 @@ Requerimientos PC Gamer que corra Win XP a 1000fps sino no intenten.
 
 
 ## Capturas
-![Captura 0001](https://prnt.sc/22rff9o)
+![Captura 0001](https://github.com/JkDevArg/402/blob/main/Screenshot_1.jpg?raw=true)
 
 
 Si estas interesado en mi script y/o te parece divertido me puedes regalar un Follow por github :D
