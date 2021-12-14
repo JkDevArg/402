@@ -92,6 +92,7 @@
         $c = intval($contenido);
         $c++;
         file_put_contents($txtc,$c);
+        echo '<script> console.log("Grupo Desconocido") </script>'; //Imprime si un grupo es desconocido por consola
         echo '<script>setTimeout(function(){ 
             window.location.reload(); 
         }, 2000);</script>';
