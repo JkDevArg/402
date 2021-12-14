@@ -96,6 +96,7 @@
         echo '<script>setTimeout(function(){ 
             window.location.reload(); 
         }, 2000);</script>';
+        //Si quieren que el chequeo sea más rápido cambien el 2000 por 500. Puede ser para ambos.
 
     }
 
