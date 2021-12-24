@@ -16,8 +16,9 @@ Cambio 0.003
 - [x] Mediante un IF verifica si existe el grupo mediante un style="background-image: url
 - [x] Muestra Notificación en el escritorio si encuentra un grupo
 - [x] Envia enlace del grupo por telegram
-- [ ] Envia un correo con el grupo hallado
-- [ ] Envia el enlace del grupo por whatsapp
+- [ ] Guarda los datos en Base de Datos (MySQL) (En proceso)
+- [ ] Envia un correo con el grupo hallado (En proceso)
+- [ ] Envia el enlace del grupo por whatsapp (Anulado)
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
 
 
