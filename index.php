@@ -1,31 +1,11 @@
 <?php 
-    $c=0;
+	  $c=0;
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $genNew = substr(str_shuffle($permitted_chars), 22, 22);
-    $web = 'https://chat.whatsapp.com/'.$genNew;
+    $web = 'https://chat.whatsapp.com/H3berIVD0me6TCkWDjixlB';
     $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
     $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
-    echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On 
-
-    function telegramMsj($web){
-
-      $token = "TOKEN DEL BOT";
-      $id = "ID DEL GRUPO ";
-      $mensaje = "Se encontro grupo de whatsapp: " . $web; // esto puedes cambiar por lo que desees ya uqe solo es un mensaje aclarando que encontro un grupo eso si la variable $web no borrarla
-
-      $urlMsg = "https://api.telegram.org/bot{$token}/sendMessage";
-
-      $te = curl_init();
-      curl_setopt($te, CURLOPT_URL, $urlMsg);
-      curl_setopt($te, CURLOPT_POST, 1);
-      curl_setopt($te, CURLOPT_POSTFIELDS, "chat_id={$id}&parse_mode=HTML&text=$mensaje");
-      curl_setopt($te, CURLOPT_RETURNTRANSFER, true);
-          
-      $server_output = curl_exec($te);
-      curl_close($te);
-
-      //return $server_output;
-    }
+    echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On
 
     function curl($url) {
 
@@ -41,16 +21,48 @@
         curl_close($ch); // Cierra sesión cURL
 
         return $info; // Devuelve la información de la función
+    }
 
+    function telegramMsj($web){
+
+      $token = "5035114182:AAHebclFaHgvDUMJHj8x4ZlgjhkfcQhFeS0";
+      $id = "-731103227";
+      $mensaje = "Se encontro grupo de whatsapp: " . $web;
+
+      $urlMsg = "https://api.telegram.org/bot{$token}/sendMessage";
+
+      $te = curl_init();
+      curl_setopt($te, CURLOPT_URL, $urlMsg);
+      curl_setopt($te, CURLOPT_POST, 1);
+      curl_setopt($te, CURLOPT_POSTFIELDS, "chat_id={$id}&parse_mode=HTML&text=$mensaje");
+      curl_setopt($te, CURLOPT_RETURNTRANSFER, true);
+          
+      $server_output = curl_exec($te);
+      curl_close($te);
+
+      //return $server_output;
     }
 
     $sitioweb = curl($web);  // Ejecuta la función curl
-
     echo $sitioweb;
+
+    //OBTENEMOS EL TITULO CON DOM
+    $dom = new \DOMDocument();
+    libxml_use_internal_errors(true);
+    $dom->loadHTML($sitioweb);
+    $titulo = $dom->getElementsByTagName('h2'); //Buscamos el tag h2
+
+    foreach ($titulo as $texto) {
+      //$example = $texto->get_class_methods('_2yzk');
+      $texto->textContent;
+      $fin = str_replace("Parece que WhatsApp no está instalado.", "", $texto->textContent);
+    }
+    $errors = libxml_get_errors(); //Limpiamos los errores por si las moscas
+
     if (strpos($sitioweb, 'style="background-image: url') !== false) {
         echo "<script>setTimeout(function(){ 
             window.open('". $web ."', '_blank');
-        }, 1000);</script>';";
+        }, 1000);</script>";
         echo '<body onload="grupoNoti()"></body>
         <script>
             function grupoNoti() {
@@ -81,22 +93,20 @@
             }
             </script>
         ';
-        file_put_contents($txt,$web."\n",FILE_APPEND);
-        echo telegramMsj($web); //Si encuentra un grupo automaticamente enviara el enlace desde el bot al grupo de telegram
-        echo '<script>setTimeout(function(){ 
-            window.location.reload(); 
-        }, 3000);</script>';
+        file_put_contents($txt ,$web."\n",FILE_APPEND);
+        echo telegramMsj($web);
+        
     } else {
         $contenido = trim(file_get_contents($txtc));
-        //echo telegramMsj($web); //Solo descomentar si es necesario hacer pruebas
         $c = intval($contenido);
         $c++;
+        //echo telegramMsj($web);
+        $sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES ($web, $titulo, date=('Y/m/d'))";
         file_put_contents($txtc,$c);
-        echo '<script> console.log("Grupo Desconocido") </script>'; //Imprime si un grupo es desconocido por consola
+        echo '<script> console.log("Grupo Desconocido") </script>'; //Debug On
         echo '<script>setTimeout(function(){ 
             window.location.reload(); 
-        }, 2000);</script>';
-        //Si quieren que el chequeo sea más rápido cambien el 2000 por 500. Puede ser para ambos.
+        }, 200);</script>';
 
     }
 
