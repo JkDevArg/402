@@ -1,8 +1,8 @@
 <?php 
-	  $c=0;
+    $c=0;
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $genNew = substr(str_shuffle($permitted_chars), 22, 22);
-    $web = 'https://chat.whatsapp.com/H3berIVD0me6TCkWDjixlB';
+    $web = 'https://chat.whatsapp.com/'.$genNew;
     $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
     $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
     echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On
@@ -53,7 +53,6 @@
     $titulo = $dom->getElementsByTagName('h2'); //Buscamos el tag h2
 
     foreach ($titulo as $texto) {
-      //$example = $texto->get_class_methods('_2yzk');
       $texto->textContent;
       $fin = str_replace("Parece que WhatsApp no está instalado.", "", $texto->textContent);
     }
@@ -101,7 +100,7 @@
         $c = intval($contenido);
         $c++;
         //echo telegramMsj($web);
-        $sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES ($web, $titulo, date=('Y/m/d'))";
+        //$sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES ($web, $titulo, date=('Y/m/d'))";
         file_put_contents($txtc,$c);
         echo '<script> console.log("Grupo Desconocido") </script>'; //Debug On
         echo '<script>setTimeout(function(){ 
