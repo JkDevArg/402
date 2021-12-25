@@ -23,10 +23,11 @@ Cambio 0.003
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
 
 
-Requerimientos PC Gamer que corra Win XP a 1000fps sino no intenten.
+Requerimientos PC con conexión a la NASA:
 * lib Curl
 * Php
 * Café
+* MySQL
 * 10 minutos de tu vida que no lo podras recuperar
 
 
