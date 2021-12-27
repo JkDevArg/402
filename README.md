@@ -16,9 +16,10 @@ Cambio 0.003
 - [x] Mediante un IF verifica si existe el grupo mediante un style="background-image: url
 - [x] Muestra Notificación en el escritorio si encuentra un grupo
 - [x] Envia enlace del grupo por telegram
-- [ ] Guarda los datos en Base de Datos (MySQL) (En proceso)
-- [ ] Obtiene el titúlo del grupo y lo guarda en la Base de Datos (En Proceso)
+- [x] Guarda los datos en Base de Datos (MySQL[PDO])
+- [x] Obtiene el titúlo del grupo y lo guarda en la Base de Datos
 - [ ] Envia un correo con el grupo hallado (En proceso)
+- [ ] Mostrar los grupos en una tabla
 - [ ] Envia el enlace del grupo por whatsapp (Anulado)
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
 
