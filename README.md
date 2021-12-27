@@ -4,6 +4,7 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 Cambio 0.05
  * Los datos se almacenan en la base de datos
  * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
+ * Los datos se muestran en una tabla
 
 Cambio 0.04
  * Se creo la base de datos pero aún no se almacenaba información
@@ -26,7 +27,7 @@ Cambio 0.03
 - [x] Guarda los datos en Base de Datos (MySQL[PDO])
 - [x] Obtiene el titúlo del grupo y lo guarda en la Base de Datos
 - [ ] Envia un correo con el grupo hallado (En proceso)
-- [ ] Mostrar los grupos en una tabla
+- [x] Mostrar los grupos en una tabla
 - [ ] Envia el enlace del grupo por whatsapp (Anulado)
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
 
