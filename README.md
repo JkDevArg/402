@@ -34,6 +34,7 @@ Requerimientos PC con conexión a la NASA:
 
 ## Capturas
 ![Captura 0001](https://github.com/JkDevArg/402/blob/main/Screenshot_1.jpg?raw=true)
+![Captura 0002](https://github.com/JkDevArg/402/blob/main/Screenshot_2.jpg?raw=true)
 
 
 
