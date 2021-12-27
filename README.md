@@ -1,9 +1,16 @@
 # 402
 Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con esa cadena generada.
 
-Cambio 0.003
- * se creo una función nueva llamada telegramMsj();
- * ahora los grupos encontrados los envia al grupo que hallas configurado. (+ info @BotFather)
+Cambio 0.05
+ * Los datos se almacenan en la base de datos
+ * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
+
+Cambio 0.04
+ * Se creo la base de datos pero aún no se almacenaba información
+
+Cambio 0.03
+ * Se creo una función nueva llamada telegramMsj(); (para enviar msj por telegram)
+ * Ahora los grupos encontrados los envia al bot que hallas configurado en telegram. (+ info @BotFather)
 
 
 ### Nueva Versión
