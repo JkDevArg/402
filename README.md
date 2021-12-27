@@ -1,18 +1,6 @@
 # 402
 Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con esa cadena generada.
 
-Cambio 0.05
- * Los datos se almacenan en la base de datos
- * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
- * Los datos se muestran en una tabla
-
-Cambio 0.04
- * Se creo la base de datos pero aún no se almacenaba información
-
-Cambio 0.03
- * Se creo una función nueva llamada telegramMsj(); (para enviar msj por telegram)
- * Ahora los grupos encontrados los envia al bot que hallas configurado en telegram. (+ info @BotFather)
-
 
 ### Nueva Versión
 
@@ -46,4 +34,23 @@ Requerimientos PC con conexión a la NASA:
 
 
 
-Script de prueba.
+## GUI
+Cambio 0.05
+ * Los datos se almacenan en la base de datos
+ * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
+ * Los datos se muestran en una tabla
+
+Cambio 0.04
+ * Se creo la base de datos pero aún no se almacenaba información
+
+Cambio 0.03
+ * Se creo una función nueva llamada telegramMsj(); (para enviar msj por telegram)
+ * Ahora los grupos encontrados los envia al bot que hallas configurado en telegram. (+ info @BotFather)
+
+## CLI
+ * Al ejecutar el script ´php index-cli.php´ guarda la cuenta de grupos chequeados y los grupos hallados.
+ * Manda msj por telegram al hallar un grupo
+ * El script queda en bucle hasta que el usuario lo cancele
+ * La terminal se limpia luego de chequear un grupo y no deja texto basura en la terminal
+ * Código optimizado para una mejor función del script
+
