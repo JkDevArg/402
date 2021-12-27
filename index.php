@@ -1,8 +1,10 @@
 <?php 
-    $c=0;
+    //error_reporting(0);
+    require_once 'conexion.php';
+	  $c=0;
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $genNew = substr(str_shuffle($permitted_chars), 22, 22);
-    $web = 'https://chat.whatsapp.com/'.$genNew;
+    $web = 'https://chat.whatsapp.com/H3berIVD0me6TCkWDjixlB';
     $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
     $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
     echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On
@@ -46,22 +48,29 @@
     $sitioweb = curl($web);  // Ejecuta la función curl
     echo $sitioweb;
 
-    //OBTENEMOS EL TITULO CON DOM
-    $dom = new \DOMDocument();
-    libxml_use_internal_errors(true);
-    $dom->loadHTML($sitioweb);
-    $titulo = $dom->getElementsByTagName('h2'); //Buscamos el tag h2
-
-    foreach ($titulo as $texto) {
-      $texto->textContent;
-      $fin = str_replace("Parece que WhatsApp no está instalado.", "", $texto->textContent);
-    }
-    $errors = libxml_get_errors(); //Limpiamos los errores por si las moscas
-
     if (strpos($sitioweb, 'style="background-image: url') !== false) {
-        echo "<script>setTimeout(function(){ 
-            window.open('". $web ."', '_blank');
-        }, 1000);</script>";
+        //OBTENEMOS EL TITULO CON DOM
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($sitioweb);
+        $titulo = $dom->getElementsByTagName('h2'); //Buscamos el tag h2
+
+        // recorremos los elementos h2
+        foreach ($titulo as $texto) {
+          // miramos de localizar el texto a eliminar
+          $pos = strpos($texto->textContent, "Parece que WhatsApp no está instalado");
+          if ($pos === false) {
+            // agregamos el contenido encerrándolo entre h2
+              $fin .= $texto->textContent;
+          } else {
+              // si lo encontramos no lo agregamos a nada
+          }
+        }
+        $gdate = date('Y-m-d');
+        $sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES (?,?,?)";
+        $stmt= $conn->prepare($sql);
+        $stmt->execute([$fin, $web, $gdate]);
+        $errors = libxml_get_errors(); //Limpiamos los errores por si las moscas
         echo '<body onload="grupoNoti()"></body>
         <script>
             function grupoNoti() {
@@ -94,16 +103,12 @@
         ';
         file_put_contents($txt ,$web."\n",FILE_APPEND);
         echo telegramMsj($web);
-        echo '<script>setTimeout(function(){ 
-            window.location.reload(); 
-        }, 200);</script>';
         
     } else {
         $contenido = trim(file_get_contents($txtc));
         $c = intval($contenido);
         $c++;
         //echo telegramMsj($web);
-        //$sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES ($web, $titulo, date=('Y/m/d'))";
         file_put_contents($txtc,$c);
         echo '<script> console.log("Grupo Desconocido") </script>'; //Debug On
         echo '<script>setTimeout(function(){ 
