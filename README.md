@@ -14,8 +14,9 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 - [x] Envia enlace del grupo por telegram
 - [x] Guarda los datos en Base de Datos (MySQL[PDO])
 - [x] Obtiene el titúlo del grupo y lo guarda en la Base de Datos
-- [ ] Envia un correo con el grupo hallado (En proceso)
 - [x] Mostrar los grupos en una tabla
+- [x] Se ejecuta en script CLI
+- [ ] Envia un correo con el grupo hallado (En proceso)
 - [ ] Envia el enlace del grupo por whatsapp (Anulado)
 - [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
 
