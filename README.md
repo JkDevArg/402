@@ -49,7 +49,7 @@ Cambio 0.03
  * Ahora los grupos encontrados los envia al bot que hallas configurado en telegram. (+ info @BotFather)
 
 ## CLI
- * Al ejecutar el script ´´´php index-cli.php´´´ guarda la cuenta de grupos chequeados y los grupos hallados.
+ * Al ejecutar el script ´php index-cli.php´ guarda la cuenta de grupos chequeados y los grupos hallados.
  * Manda msj por telegram al hallar un grupo
  * El script queda en bucle hasta que el usuario lo cancele
  * La terminal se limpia luego de chequear un grupo y no deja texto basura en la terminal
