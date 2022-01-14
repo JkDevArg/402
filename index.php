@@ -4,7 +4,7 @@
 	  $c=0;
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $genNew = substr(str_shuffle($permitted_chars), 22, 22);
-    $web = 'https://chat.whatsapp.com/H3berIVD0me6TCkWDjixlB';
+    $web = 'https://chat.whatsapp.com/'.$genNew; //me olvide de cambiar xD
     $txt = $_SERVER['DOCUMENT_ROOT'] . '/grupos.txt';
     $txtc = $_SERVER['DOCUMENT_ROOT'] . "/contador.txt";
     echo '<script> console.log('. json_encode( $web ) .') </script>'; //Debug On
