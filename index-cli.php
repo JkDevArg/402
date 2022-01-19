@@ -23,8 +23,8 @@ while($rerun_flag == true){
     
     if (!function_exists('telegramMsj')){
       function telegramMsj($web){
-        $token = "5035114182:AAHebclFaHgvDUMJHj8x4ZlgjhkfcQhFeS0";
-        $id = "-731103227";
+        $token = "TOKEN ID";
+        $id = "AQUI LA ID DEL GRUPO/PAGINA/USUARIO donde se enviara el mensaje";
         $mensaje = "Se encontro grupo de whatsapp: " . $web;
         $urlMsg = "https://api.telegram.org/bot{$token}/sendMessage";
         $te = curl_init();
