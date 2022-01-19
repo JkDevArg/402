@@ -34,8 +34,8 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 
 
 ## Capturas
-![Captura 0001](https://github.com/JkDevArg/402/blob/main/Screenshot_1.jpg?raw=true)
-![Captura 0002](https://github.com/JkDevArg/402/blob/main/Screenshot_2.jpg?raw=true)
+<a href="https://ibb.co/8svpvVq"><img src="https://i.ibb.co/V9nZn8R/Screenshot-2.jpg" alt="Screenshot-2" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/pwRjCMz/Screenshot-1.jpg" alt="Screenshot-1" border="0"></a>
 
 
 
