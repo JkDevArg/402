@@ -1,32 +1,36 @@
-# 402
+# 402 ~ Whatsapp Buscador de Grupos
 Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con esa cadena generada.
 
 
-### Nueva Versión
+### Cambios 1.0
 
 - [x] Automatizado
 - [x] Se actualiza 2 segs al no hallar un grupo
 - [x] Se actualiza 3 segs al hallar un grupo
 - [x] Guarda los grupos encontrados en un bloc de notas "grupos.txt"
 - [x] Contador de cadenas generadas "contador.txt"
+
+## Cambios 2.0
 - [x] Mediante un IF verifica si existe el grupo mediante un style="background-image: url
 - [x] Muestra Notificación en el escritorio si encuentra un grupo
 - [x] Envia enlace del grupo por telegram
+
+## Cambios 3.0
 - [x] Guarda los datos en Base de Datos (MySQL[PDO])
 - [x] Obtiene el titúlo del grupo y lo guarda en la Base de Datos
 - [x] Mostrar los grupos en una tabla
 - [x] Se ejecuta en script CLI
+
+## Cambios Pendientes
 - [ ] Envia un correo con el grupo hallado (En proceso)
-- [ ] Envia el enlace del grupo por whatsapp (Anulado)
-- [ ] Prepara un café, te corrige el examen, te pasea el perro y te estaciona el auto.
+- [ ] ~~Envia el enlace del grupo por whatsapp (Anulado)~~
 
 
-Requerimientos PC con conexión a la NASA:
-* lib Curl
-* Php
-* Café
+
+## Requerimientos
+* Lib cURL
+* PHP 7.4+
 * MySQL
-* 10 minutos de tu vida que no lo podras recuperar
 
 
 ## Capturas
@@ -36,22 +40,30 @@ Requerimientos PC con conexión a la NASA:
 
 
 ## GUI
-Cambio 0.05
+<details>
+<summary><b>Cambios en GUI</b></summary>
+  
+### Cambio 3.0
  * Los datos se almacenan en la base de datos
  * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
  * Los datos se muestran en una tabla
 
-Cambio 0.04
+### Cambio 2.0
  * Se creo la base de datos pero aún no se almacenaba información
+ * Los datos se guardan en un bloc de notas en txt
 
-Cambio 0.03
+### Cambio 1.0
  * Se creo una función nueva llamada telegramMsj(); (para enviar msj por telegram)
  * Ahora los grupos encontrados los envia al bot que hallas configurado en telegram. (+ info @BotFather)
+</details>
 
 ## CLI
- * Al ejecutar el script ´php index-cli.php´ guarda la cuenta de grupos chequeados y los grupos hallados.
+<details>
+<summary><b>Cambios en CLI</b></summary>
+  
+ * Al ejecutar el script ```php index-cli.php``` guarda la cuenta de grupos chequeados y los grupos hallados.
  * Manda msj por telegram al hallar un grupo
  * El script queda en bucle hasta que el usuario lo cancele
  * La terminal se limpia luego de chequear un grupo y no deja texto basura en la terminal
  * Código optimizado para una mejor función del script
-
+</details>
