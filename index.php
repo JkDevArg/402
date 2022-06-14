@@ -1,7 +1,7 @@
 <?php 
     //error_reporting(0);
     require_once 'conexion.php';
-	  $c=0;
+    $c=0;
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $genNew = substr(str_shuffle($permitted_chars), 22, 22);
     $web = 'https://chat.whatsapp.com/'.$genNew; //me olvide de cambiar xD
@@ -62,8 +62,6 @@
           if ($pos === false) {
             // agregamos el contenido encerrándolo entre h2
               $fin .= $texto->textContent;
-          } else {
-              // si lo encontramos no lo agregamos a nada
           }
         }
         $gdate = date('Y-m-d');
