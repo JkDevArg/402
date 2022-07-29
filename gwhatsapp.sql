@@ -28,10 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `gwhatsapp` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `enlace` varchar(255) NOT NULL,
-  `fecha` date NOT NULL
+  `proxy` varchar(255) DEFAULT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

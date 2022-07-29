@@ -77,10 +77,10 @@
               $fin .= $texto->textContent;
           }
         }
-        $gdate = date('Y-m-d');
-        $sql = "INSERT INTO gwhatsapp (nombre, enlace, fecha) VALUES (?,?,?)";
+        $proxy_rotate = proxyRotate();
+        $sql = "INSERT INTO gwhatsapp (nombre, enlace, proxy) VALUES (?,?,?)";
         $stmt= $conn->prepare($sql);
-        $stmt->execute([$fin, $web, $gdate]);
+        $stmt->execute([$fin, $web, $proxy_rotate]);
         $errors = libxml_get_errors(); //Limpiamos los errores por si las moscas
         echo '<body onload="grupoNoti()"></body>
         <script>

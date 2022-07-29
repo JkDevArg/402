@@ -57,7 +57,8 @@ while($rerun_flag == true){
     if (strpos($sitioweb, 'style="background-image: url') !== false) {
       echo "Se encontro un grupo: ".$web;
       echo "\n";
-      file_put_contents($txt,$web."\n",FILE_APPEND);
+      $proxy_rotate = proxyRotate();
+      file_put_contents($txt,$web," proxy: ".$proxy_rotate."\n",FILE_APPEND);
       echo telegramMsj($web);
       sleep(2);
       $rerun_flag=true;
