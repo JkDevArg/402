@@ -41,7 +41,7 @@ while($rerun_flag == true){
     if(!function_exists('proxyRotate')){
       function proxyRotate(){
         //Obtener API de proxy en https://www.proxyrotator.com/
-        $rotateApi = 'http://falcon.proxyrotator.com:51337/?apiKey=YOUR-API-KEY&port80';
+        $rotateApi = 'http://falcon.proxyrotator.com:51337/?apiKey=YOUR-API-KEY&port=80';
         $ch = curl_init($rotateApi);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);

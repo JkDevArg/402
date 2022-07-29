@@ -15,7 +15,7 @@
 
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); // Configura cURL para devolver el resultado como cadena
-
+        curl_setopt($ch, CURLOPT_PROXY, proxyRotate()); //utilizamos un proxy para evitar que Whatsapp se bloquee por exceso de solicitudes
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Configura cURL para que no verifique el peer del certificado dado que nuestra URL utiliza el protocolo HTTPS
 
         $info = curl_exec($ch); // Establece una sesión cURL y asigna la información a la variable $info
@@ -43,6 +43,19 @@
       curl_close($te);
 
       //return $server_output;
+    }
+
+    function proxyRotate(){
+      //Obtener API de proxy en https://www.proxyrotator.com/
+      $rotateApi = 'http://falcon.proxyrotator.com:51337/?apiKey=YOUR-API-KEY&port=80';
+      $ch = curl_init($rotateApi);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+      $response = curl_exec($ch);
+      curl_close($ch);
+      $json = json_decode($response, true);
+      $proxy = $json['proxy'];
+      return $proxy;
     }
 
     $sitioweb = curl($web);  // Ejecuta la función curl
@@ -112,6 +125,7 @@
         //echo telegramMsj($web);
         file_put_contents($txtc,$c);
         echo '<script> console.log("Grupo Desconocido") </script>'; //Debug On
+        echo '<script>console.log("'.proxyRotate().'")</script>';
         echo '<script>setTimeout(function(){ 
             window.location.reload(); 
         }, 200);</script>';
