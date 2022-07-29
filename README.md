@@ -25,7 +25,6 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 - [x] Se añadio un Proxy rotator para que whatsapp no bloqueara la petición por IP (CLI)
 
 ## Cambios Pendientes
-- [ ] aÑADIR Proxy Rotator (Solo GUI)
 - [ ] Envia un correo con el grupo hallado (En proceso)
 - [ ] ~~Envia el enlace del grupo por whatsapp (Anulado)~~
 
@@ -46,7 +45,10 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 ## GUI
 <details>
 <summary><b>Cambios en GUI</b></summary>
-  
+
+### Cambios 4.0
+ * Se añadio un Proxy rotator para que whatsapp no bloqueara la petición por IP
+ 
 ### Cambio 3.0
  * Los datos se almacenan en la base de datos
  * Se obtiene el titúlo del grupo y lo almacena en una variable llamada $fin para luego almacenarla en la db
@@ -70,4 +72,5 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
  * El script queda en bucle hasta que el usuario lo cancele
  * La terminal se limpia luego de chequear un grupo y no deja texto basura en la terminal
  * Código optimizado para una mejor función del script
+ * Proxy Rotate Agregado
 </details>
