@@ -21,7 +21,11 @@ Genera una cadena alfanumerica para chequear si existen grupos de whatsapp con e
 - [x] Mostrar los grupos en una tabla
 - [x] Se ejecuta en script CLI
 
+## Cambios 4.0
+- [x] Se añadio un Proxy rotator para que whatsapp no bloqueara la petición por IP (CLI)
+
 ## Cambios Pendientes
+- [ ] aÑADIR Proxy Rotator (Solo GUI)
 - [ ] Envia un correo con el grupo hallado (En proceso)
 - [ ] ~~Envia el enlace del grupo por whatsapp (Anulado)~~
 
