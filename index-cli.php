@@ -15,6 +15,7 @@ while($rerun_flag == true){
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); // Configura cURL para devolver el resultado como cadena
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Configura cURL para que no verifique el peer del certificado dado que nuestra URL utiliza el protocolo HTTPS
+        curl_setopt($ch, CURLOPT_PROXY, proxyRotate()); //utilizamos un proxy para evitar que Whatsapp se bloquee por exceso de solicitudes
         $info = curl_exec($ch); // Establece una sesión cURL y asigna la información a la variable $info
         curl_close($ch); // Cierra sesión cURL
         return $info; // Devuelve la información de la función
@@ -37,6 +38,21 @@ while($rerun_flag == true){
       }
     }
 
+    if(!function_exists('proxyRotate')){
+      function proxyRotate(){
+        //Obtener API de proxy en https://www.proxyrotator.com/
+        $rotateApi = 'http://falcon.proxyrotator.com:51337/?apiKey=YOUR-API-KEY&port80';
+        $ch = curl_init($rotateApi);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $json = json_decode($response, true);
+        $proxy = $json['proxy'];
+        return $proxy;
+      }
+    }
+
     $sitioweb = curl($web);  // Ejecuta la función curl
     if (strpos($sitioweb, 'style="background-image: url') !== false) {
       echo "Se encontro un grupo: ".$web;
@@ -55,6 +71,7 @@ while($rerun_flag == true){
       //file_put_contents($txtc,$c);
       echo 'No se encontro grupo de whatsapp'; //Debug On
       echo "\nEnlace: ".$web;
+      echo "\nProxy: ".proxyRotate();
       echo "\n";
       sleep(2);  
       $rerun_flag=true;
